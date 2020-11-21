@@ -1,0 +1,49 @@
+.details {
+    float: none;
+    background-color: white;
+    border-radius: 3px;
+}
+
+.details h1 {
+    line-height: 40px;
+    font-family: Ubuntu;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.details h2 {
+    line-height: 40px;
+    font-family: Ubuntu;
+    font-size: 10px;
+    font-weight: normal;
+    text-align: center;
+}
+
+.details p {
+    font-family: Ubuntu;
+    font-weight: bold;
+    color: rgba(145, 43, 43, 0.425);
+    text-align: center;
+    text-shadow: 0 1px white;
+}
+
+/* .box p {
+    margin: 20px 0 0;
+}
+
+.box p {
+    margin: 20px 0 0;
+}
+
+.box p:first-child {
+    margin-top: 0;
+}
+
+.box input[type=email], .box input[type=password] {
+    width: 278px;
+}
+
+.box p.submit {
+    text-align: right;
+} */

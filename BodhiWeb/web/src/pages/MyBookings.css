@@ -1,0 +1,46 @@
+.myBookings h1 {
+    margin: -20px -20px 21px;
+    line-height: 40px;
+    font-family: Ubuntu;
+    font-size: 15px;
+    font-weight: bold;
+    color: green;
+    text-align: center;
+    text-shadow: 0 1px white;
+    background: #f3f3f3;
+    border-bottom: 1px solid #cfcfcf;
+    border-radius: 3px 3px 0 0;
+    background-image: -webkit-linear-gradient(top, whiteffd, #eef2f5);
+    background-image: -moz-linear-gradient(top, whiteffd, #eef2f5);
+    background-image: -o-linear-gradient(top, whiteffd, #eef2f5);
+    background-image: linear-gradient(to bottom, whiteffd, #eef2f5);
+    -webkit-box-shadow: 0 1px whitesmoke;
+    box-shadow: 0 1px whitesmoke;
+}
+
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.myBookings td, .myBookings th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.myBookings tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.myBookings tr:hover {
+    background-color: #ddd;
+}
+
+.myBookings th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}

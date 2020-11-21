@@ -1,0 +1,251 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "BODHI BOOKING SERVICE",
+    "description": "This service is used to manage users of BODHI Application ",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "securityDefinitions": {
+    "JWT": {
+      "type": "apiKey",
+      "name": "x-access-token",
+      "in": "header"
+    }
+  },
+  "security": [
+    {
+      "JWT": []
+    }
+  ],
+  "responses": {
+    "UnauthorizedError": {
+      "description": "Access token is missing or invalid"
+    }
+  },
+  "host": "localhost:3003",
+  "basePath": "/api/v1",
+  "tags": [
+    {
+      "name": "Booking",
+      "description": "API for booking in the system"
+    }
+  ],
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/booking": {
+      "post": {
+        "tags": ["Booking"],
+        "summary": "Create booking details into system",
+        "description": "This can only be done by the logged in user.",
+        "operationId": "createBooking",
+        "produces": "application/xml,application/json",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": "true",
+            "description": "Enter booking details"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Booking"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Booking"],
+        "summary": "Cancel Booking",
+        "description": "This can only be done by the logged in user.",
+        "operationId": "cancelBooking",
+        "produces": "application/xml,application/json",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": "true",
+            "description": "Cancel Booking"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Booking"
+            }
+          }
+        }
+      }
+    },
+    "/booking/{given_date}": {
+      "delete": {
+        "tags": ["Booking"],
+        "summary": "Delete Booking in system",
+        "description": "This can only be done by the logged in user.",
+        "operationId": "deleteUser",
+        "produces": "application/xml,application/json",
+        "parameters": [
+          {
+            "name": "given_date",
+            "in": "path",
+            "required": "true",
+            "description": "Delete user"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Booking"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": ["Booking"],
+        "summary": "View Booking details by Date",
+        "description": "This can only be done by the logged in user.",
+        "operationId": "viewUser",
+        "produces": "application/xml,application/json",
+        "parameters": [
+          {
+            "name": "given_date",
+            "in": "path",
+            "required": "true",
+            "description": "View my Details"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Booking"
+            }
+          }
+        }
+      }
+    },
+    "/booking/viewBooking/{user_id}": {
+      "get": {
+        "tags": ["Booking"],
+        "summary": "View My Booking Details",
+        "description": "This can only be done by the logged in user.",
+        "operationId": "viewBooking",
+        "produces": "application/xml,application/json",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": "true",
+            "description": "View my Booking details"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Booking"
+            }
+          }
+        }
+      }
+    },
+    "/booking/createSchedule/{clinic_id}/{doctor_id}/{load_date}": {
+      "post": {
+        "tags": ["Booking"],
+        "summary": "Load Doctor Schedule details by Clinic ID & Doctor ID",
+        "description": "This can only be done by the logged in user.",
+        "operationId": "createSchedule",
+        "produces": "application/xml,application/json",
+        "parameters": [
+          {
+            "name": "clinic_id",
+            "in": "path",
+            "required": "true",
+            "description": "Enter Clinic ID"
+          },
+          {
+            "name": "doctor_id",
+            "in": "path",
+            "required": "true",
+            "description": "Enter Doctor ID"
+          },
+          {
+            "name": "load_date",
+            "in": "path",
+            "required": "true",
+            "description": "Enter Date"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Booking"
+            }
+          }
+        }
+      }
+    },
+    "/booking/load/loadSchedule/{clinic_id}/{given_date}": {
+      "get": {
+        "tags": ["Booking"],
+        "summary": "Load Doctor Schedule details by Clinic ID & Given Date",
+        "description": "This can only be done by the logged in user.",
+        "operationId": "loadSchedule",
+        "produces": "application/xml,application/json",
+        "parameters": [
+          {
+            "name": "clinic_id",
+            "in": "path",
+            "required": "true",
+            "description": "Enter Clinic ID"
+          },
+          {
+            "name": "given_date",
+            "in": "path",
+            "required": "true",
+            "description": "Enter Date"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Booking"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Booking": {
+      "required": ["booking_id"],
+      "properties": {
+        "patient_email_id": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "clinic_id": {
+          "type": "string"
+        },
+        "doctor_id": {
+          "type": "string"
+        },
+        "time_slot": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

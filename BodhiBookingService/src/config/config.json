@@ -1,0 +1,22 @@
+{
+  "dev": {
+    "username": "postgres",
+    "password": "mysecretpassword",
+    "database": "bodhi",
+    "host": "localhost",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "dateStrings": true,
+      "typeCast": true,
+      "useUTC": false
+    },
+    "timezone": "Australia/Sydney"
+  },
+  "test": {
+    "username": null,
+    "password": null,
+    "database": "main",
+    "host": "localhost",
+    "dialect": "sqlite"
+  }
+}
